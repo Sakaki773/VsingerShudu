@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Android build outputs
+android/build/
+android/debug.keystore
+*.apk
+*.ap_
+*.aab
+*.idsig
+*.dex
+*.class
+
+# Local IDE / OS files
+.idea/
+.vscode/
+*.iml
+Thumbs.db
+.DS_Store
+
+# Large/raw candidate pools kept local by default.
+assets/candidates/
+assets/originals/
+assets/iqoo/*
+!assets/iqoo/a03dfd70b64132d3b6e596feff5e35096cbedd05.jpg
+
+# One-off review sheets and temporary previews.
+assets/*contact_sheet.jpg
+assets/icon_candidates.jpg
+assets/iqoo_image_report.txt
+
