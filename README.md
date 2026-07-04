@@ -2,6 +2,15 @@
 
 洛天依主题 9x9 数独游戏，包含 PC Tkinter 原型和原生 Android APK 版本。主题色以洛天依应援色 `#66CCFF` 为主，界面使用淡化/虚化背景图，尽量保证主题感和可读性平衡。
 
+## 技术实现
+
+- PC 桌面版：使用 Python 编写，`vsinger_sudoku.py` 基于 Tkinter 实现窗口、欢迎页、棋盘绘制、数字输入、辅助数字和常用操作。
+- 图片处理：使用 Pillow 加载、裁切和淡化背景图；`prepare_assets.py` 用于生成 PC/Android 两套规格素材。
+- 数独逻辑：题目和答案在 Python 端随机生成，并通过求解计数检查唯一解。
+- Android 版：使用 Java 原生 Android 实现，`MainActivity.java` 通过自定义 View 绘制界面和处理触控。
+- Android 构建：不依赖 Gradle，`build_android_apk.ps1` 直接调用 Android SDK 工具链中的 `aapt2`、`javac`、`d8`、`zipalign` 和 `apksigner` 生成 Debug APK。
+- 当前仓库未提供 PC EXE 打包脚本；PC 端主要用于本地原型预览，移动端交付物为 APK。
+
 ## 当前状态
 
 - PC 端：`vsinger_sudoku.py`，用于快速预览和交互调整。
@@ -52,6 +61,20 @@
 
 ```powershell
 & "E:\anaconda3\envs\envs2\python.exe" .\vsinger_sudoku.py
+```
+
+## 打包命令速查
+
+重新构建 Android Debug APK：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\build_android_apk.ps1
+```
+
+重新生成 PC/Android 两套规格素材：
+
+```powershell
+& "E:\anaconda3\envs\envs2\python.exe" .\prepare_assets.py
 ```
 
 ## Android 构建
